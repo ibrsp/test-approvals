@@ -10,15 +10,4 @@ jobs:
   myjob:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@v1
-        with:
-          app_id: ${{ vars.APPROVALS_APP_ID }}
-          private_key: ${{ secrets.APPROVALS_APP_PRIVATE_KEY }}
-      - name: Wait for approval
-        uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ steps.generate_token.outputs.token }}
-          approvers: ibrsp-operations
-          minimum-approvals: ${{ vars.MINIMUM_APPROVALS || 1 }}
+      - run: echo Hello, world.
